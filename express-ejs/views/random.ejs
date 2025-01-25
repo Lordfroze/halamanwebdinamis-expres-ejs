@@ -1,2 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
      <!-- Menampilkan passing data num -->
-     <p> Random Number = <%= num %> </p>
+     <p> Random Number = <%= num %>
+     </p>
+
+     <!-- menampilkan angka ganjil atau genap -->
+     <% if (num % 2 === 0) { %>
+          <h3>Angka Genap</h3>
+     <% } else { %>
+          <h3>Angka Ganjil</h3>
+     <% } %>
+
+     <!-- Menampilkan angka ganjil genap dengan ternary operator -->
+      <h3>Angka diatas adalah : <%= num%2 === 0 ? 'genap' : 'ganjil' %></h3>
+
+
+</body>
+
+</html>
