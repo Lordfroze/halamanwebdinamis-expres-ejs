@@ -19,6 +19,13 @@ app.get('/t/:tag', (req, res) => {
     res.render('tag', {tag});
 });
 
+// Menampilkan data kucing
+app.get('/cats', (req, res) => {
+    const cats = [
+        'Blue', 'Rocket', 'Monty', 'Stephen', 'Winston'
+    ];
+    res.render('cats', {cats});
+})
 
 // passing data num ke views/random.ejs
 app.get('/rand', (req, res) => {
