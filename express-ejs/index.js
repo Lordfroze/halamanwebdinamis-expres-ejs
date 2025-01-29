@@ -3,6 +3,9 @@ const path = require('path') // path
 const express = require('express');
 const app = express();
 
+// import file data json
+const tagsData = require('./data.json');
+
 // set view engine ke ejs
 app.set('view engine', 'ejs');
 // set agar view default mengarah pada folder views
@@ -16,7 +19,12 @@ app.get('/', (req, res) => {
 // menampilkan data seperti devto sesuai tag
 app.get('/t/:tag', (req, res) => {
     const {tag} = req.params;
-    res.render('tag', {tag});
+    const data = tagsData[tag]; // data yang diambil dari data.json
+    if (data) {
+        res.render('tag', {data}); // passing data ke views/tag.ejs
+    } else {
+        res.render('notfound', {tag}); // passing tag ke views/notfound.ejs
+    }
 });
 
 // Menampilkan data kucing
@@ -34,5 +42,5 @@ app.get('/rand', (req, res) => {
 });
 
 app.listen(8080, () => {
-    console.log(`listeing on host http://localhost:8080`);
+    console.log(`buka pada host http://localhost:8080`);
 })

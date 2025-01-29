@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= tag %> - Dev Com</title>
+    <title><%= data.title %> - Dev Com</title>
 </head>
 <body>
-    <h1>Tag: <%= tag %></h1>
+    <!-- menampilkan data gambar -->
+    <% if(data.img) {%>
+        <img src="<%= data.img %>" alt="">
+    <% } %>
+    
+    <!-- menampilkan data judul -->
+    <h1>Tag: <%= data.title %></h1>
+
+    <!-- menampilkan data deskripsi -->
+    <h3><%= data.description %></h3>
+
+    <!-- menampilkan data followers -->
+     <p>Followers: <%= data.followers %></p>
+
+    <!-- menampilkan data array -->
+     <% for(let post of data.posts) {%>
+        <article> 
+            <p><%= post.title %> - <%= post.author %></p>
+        </article>
+    <% } %>
+
 </body>
 </html>
