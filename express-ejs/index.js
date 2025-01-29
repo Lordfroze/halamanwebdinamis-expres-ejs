@@ -10,6 +10,8 @@ const tagsData = require('./data.json');
 app.set('view engine', 'ejs');
 // set agar view default mengarah pada folder views
 app.set('views', path.join(__dirname, '/views'));
+// set foler public sebagai static folder
+app.use(express.static(path.join(__dirname, '/public')));
 
 // menampilkan halaman home.ejs
 app.get('/', (req, res) => {
